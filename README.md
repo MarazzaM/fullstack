@@ -14,7 +14,7 @@ Copy .env.example in .env
 ```bash
 cp .env.example .env
 ```
-To start the db and run migrations in development mode, can use deploy instead for prod
+To start the db and run migrations in development mode, can use deploy instead for prod (im using sqlite so no need to run this really)
 ```bash
 npx prisma migrate dev
 ```

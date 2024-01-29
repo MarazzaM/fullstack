@@ -62,7 +62,7 @@ import { Nav } from "@/components/ui/modular/nav"
         </ResizablePanel>
         <ResizableHandle withHandle />
         <ResizablePanel defaultSize={85}>
-          <div className="flex h-full items-center justify-center p-6 max-h-screen">
+          <div className="flex h-full items-center justify-center p-6 ">
             <span className="font-semibold w-full h-full">{children}</span>
           </div>
         </ResizablePanel>

@@ -33,16 +33,20 @@ export default function ScrollAreaMsg() {
 
   return (
     <ScrollArea className="h-72 w-48 rounded-md border">
-    <div className="p-4">
-      <h4 className="mb-4 font-semibold leading-none tracking-tight">This are your messages!</h4>
-      {messages.map((message) => (
-        <div key={message.id} className="flex flex-col space-y-1">
-          <div className="text-sm">{message.content}</div>
-          <div className="text-xs text-gray-500">{new Date(message.timestamp).toLocaleString()}</div>
-          <Separator className="my-2" />
-        </div>
-      ))}
-    </div>
-  </ScrollArea>
+      <div className="p-4">
+        <h4 className="mb-4 font-semibold leading-none tracking-tight">This are your messages!</h4>
+        {messages.length === 0 ? (
+          <div className="text-sm text-gray-500">No messages yet!.</div>
+        ) : (
+          messages.map((message) => (
+            <div key={message.id} className="flex flex-col space-y-1">
+              <div className="text-sm">{message.content}</div>
+              <div className="text-xs text-gray-500">{new Date(message.timestamp).toLocaleString()}</div>
+              <Separator className="my-2" />
+            </div>
+          ))
+        )}
+      </div>
+    </ScrollArea>
   );
 }

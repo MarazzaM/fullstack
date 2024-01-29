@@ -7,11 +7,11 @@ import { useStore } from "@/store/store";
 export default function ScrollAreaMsg() {
   const user = useStore.getState().user;
   const [messages, setMessages] = useState([]);
-
+  const backend = process.env.NEXT_PUBLIC_NEXTBACKEND_URL;
   useEffect(() => {
     const fetchMessages = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/v1/chat/messages/${user.email}`, {
+        const response = await fetch(`${backend}/chat/messages/${user.email}`, {
           headers: {
             Authorization: `Bearer ${user.accessToken}`,
           },

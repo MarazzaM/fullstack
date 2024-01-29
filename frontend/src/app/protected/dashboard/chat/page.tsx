@@ -20,7 +20,7 @@ const ChatComponent = () => {
   const messagesEndRef = useRef(null);
 
   const user = useStore.getState().user;
-
+  const backend = process.env.NEXT_PUBLIC_NEXTBACKEND_URL;
   useEffect(() => {
     // Scroll to the bottom of the container
     messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
@@ -33,8 +33,7 @@ const ChatComponent = () => {
     // Fetch initial messages from the server
     const fetchInitialMessages = async () => {
       try {
-        const response = await fetch(
-          "http://localhost:5000/api/v1/chat/messages",
+        const response = await fetch(`${backend}/chat/messages`,
           {
             headers: {
               Authorization: `Bearer ${user.accessToken}`,

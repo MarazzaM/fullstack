@@ -7,7 +7,7 @@ export async function GET(req: NextApiRequest, res: NextApiResponse) {
 
       const cookieStore = cookies()
       const accessToken = cookieStore.get('accessToken')?.value
-
+      const backend = process.env.NEXT_PUBLIC_NEXTBACKEND_URL;
     //   console.log('accessToken:', accessToken2.value);
             // console.log('Request Headers:', req.headers);
 
@@ -19,7 +19,7 @@ export async function GET(req: NextApiRequest, res: NextApiResponse) {
       }
   
       // validate the token
-      const profileResponse = await fetch('http://localhost:5000/api/v1/users/profile', {
+      const profileResponse = await fetch(`${backend}/users/profile`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
